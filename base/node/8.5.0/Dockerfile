@@ -1,3 +1,3 @@
-FROM node:8.5.0
+FROM node:8.16
 
 MAINTAINER phithon <root@leavesongs.com>
