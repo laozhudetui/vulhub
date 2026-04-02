@@ -8,7 +8,7 @@ RUN set -ex \
     && sed -E -i 's#<cas\.version>4\.1\.[0-9]+</cas\.version>#<cas.version>4.1.5</cas.version>#' pom.xml \
     && mvn clean package
 
-FROM tomcat:8.5-jdk8
+FROM tomcat:10.1.0-jdk11-corretto
 
 COPY --from=builder /usr/src/target/cas.war /usr/local/tomcat/webapps/cas.war
 COPY --from=builder /usr/src/etc/ /etc/cas/
