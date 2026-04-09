@@ -1,0 +1,521 @@
+# Instincts generated from https://github.com/laozhudetui/vulhub
+# Generated: 2026-04-09T14:32:04.813Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: vulhub-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Commit Length
+
+## Action
+
+Keep commit messages concise (~33 characters)
+
+## Evidence
+
+- Average commit message length: 33 chars
+- Based on 100 commits
+
+---
+id: vulhub-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: vulhub-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: vulhub-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: vulhub-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: vulhub-workflow-database-migration
+trigger: "when modifying the database schema or adding tables"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Workflow Database Migration
+
+## Action
+
+Follow the database-migration workflow:
+1. Create migration file
+2. Update schema definitions
+3. Generate/update types
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/schema.*
+
+---
+id: vulhub-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: 
+
+---
+id: vulhub-workflow-add-new-cve-environment
+trigger: "when doing add new cve environment"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Workflow Add New Cve Environment
+
+## Action
+
+Follow the add-new-cve-environment workflow:
+1. Create or update a base Dockerfile for the relevant software version (base/{software}/{version}/Dockerfile).
+2. Add environment-specific files under {software}/{CVE}/ (e.g., images, README.md, README.zh-cn.md, docker-compose.yml, exploit or poc scripts).
+3. Add supporting scripts or SQL files if needed (e.g., database/001_schema.sql, docker-entrypoint.sh).
+4. Commit all files together.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: base/*/*/Dockerfile, */*/README.md, */*/README.zh-cn.md
+
+---
+id: vulhub-workflow-merge-feature-pr
+trigger: "when doing merge feature pr"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Workflow Merge Feature Pr
+
+## Action
+
+Follow the merge-feature-pr workflow:
+1. Merge the pull request.
+2. Duplicate all files added/changed in the feature branch into the main branch in a single commit.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: base/*/*/Dockerfile, */*/README.md, */*/README.zh-cn.md
+
+---
+id: vulhub-workflow-add-or-update-readme-translation
+trigger: "when doing add or update readme translation"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Workflow Add Or Update Readme Translation
+
+## Action
+
+Follow the add-or-update-readme-translation workflow:
+1. Create or update README.zh-cn.md in the relevant CVE directory.
+2. Optionally update README.md if there are improvements or corrections.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: */*/README.md, */*/README.zh-cn.md
+
+---
+id: vulhub-workflow-improve-or-update-existing-manual
+trigger: "when doing improve or update existing manual"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/laozhudetui/vulhub
+---
+
+# Vulhub Workflow Improve Or Update Existing Manual
+
+## Action
+
+Follow the improve-or-update-existing-manual workflow:
+1. Edit README.md and/or README.zh-cn.md in the relevant CVE directory.
+2. Optionally update or add images or scripts.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: */*/README.md, */*/README.zh-cn.md, */*/*.png
+
+---
+id: vulhub-instinct-file-naming
+trigger: "When creating new files (Java source, config, or scripts)"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct File Naming
+
+## Action
+
+Name files using PascalCase (e.g., MyClass.java, Dockerfile)
+
+## Evidence
+
+- Pattern in codeStyle.files: PascalCase
+- base/activemq/5.11.1/with-cron/Dockerfile
+
+---
+id: vulhub-instinct-function-naming
+trigger: "When defining a new function in Java code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Function Naming
+
+## Action
+
+Use camelCase for function names (e.g., doSomething())
+
+## Evidence
+
+- Pattern in codeStyle.functions: camelCase
+
+---
+id: vulhub-instinct-class-naming
+trigger: "When defining a new class in Java code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names (e.g., VulnerabilityDemo)
+
+## Evidence
+
+- Pattern in codeStyle.classes: PascalCase
+
+---
+id: vulhub-instinct-constant-naming
+trigger: "When defining constants in Java code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names (e.g., MAX_SIZE)
+
+## Evidence
+
+- Pattern in codeStyle.constants: SCREAMING_SNAKE_CASE
+
+---
+id: vulhub-instinct-import-style
+trigger: "When importing modules in Java code"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle: relative
+
+---
+id: vulhub-instinct-export-style
+trigger: "When exporting modules/classes in Java code"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle: named
+
+---
+id: vulhub-instinct-test-location
+trigger: "When adding tests for a module or environment"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Test Location
+
+## Action
+
+Place test files in a separate directory from source code
+
+## Evidence
+
+- architecture.folderStructure.testLocation: separate
+
+---
+id: vulhub-instinct-commit-format-freeform
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Commit Format Freeform
+
+## Action
+
+Use a short, freeform message describing the change (average 33 characters, no strict prefix)
+
+## Evidence
+
+- Pattern in commits: freeform, e.g., 'improve git image size', 'added Apache Flink CVE-2020-17518'
+- No strict prefixes
+
+---
+id: vulhub-instinct-commit-cve-addition
+trigger: "When adding a new CVE environment"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Commit Cve Addition
+
+## Action
+
+Include the software name and CVE identifier in the commit message (e.g., 'add zabbix CVE-2020-11800')
+
+## Evidence
+
+- Seen in: 'add zabbix CVE-2020-11800', 'added Apache Flink CVE-2020-17518 / CVE-2020-17519'
+
+---
+id: vulhub-instinct-merge-pr-format
+trigger: "When merging a pull request"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Merge Pr Format
+
+## Action
+
+Use the commit message format: 'Merge pull request #[number] from [branch]'
+
+## Evidence
+
+- Seen in: 'Merge pull request #249 from vulhub/ISSUE/248', 'Merge pull request #250 from vulhub/flink-cve-2020-17518'
+
+---
+id: vulhub-instinct-add-new-cve-env
+trigger: "When someone wants to add a new CVE or exploit environment to the repository"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Add New Cve Env
+
+## Action
+
+Create or update base Dockerfile, add environment files (README, docker-compose.yml, exploit/poc scripts, images), add supporting scripts or SQL files if needed, and commit all together
+
+## Evidence
+
+- Workflow: add-new-cve-environment
+- Files: base/*/*/Dockerfile, */*/README.md, */*/docker-compose.yml, etc.
+- Commits: 'add zabbix CVE-2020-11800', 'added Apache Flink CVE-2020-17518 / CVE-2020-17519'
+
+---
+id: vulhub-instinct-merge-feature-pr
+trigger: "When someone merges a pull request for a new CVE environment or significant feature addition"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Merge Feature Pr
+
+## Action
+
+Merge the pull request and duplicate all files added/changed in the feature branch into the main branch in a single commit
+
+## Evidence
+
+- Workflow: merge-feature-pr
+- Commits: 'Merge pull request #249 from vulhub/ISSUE/248'
+
+---
+id: vulhub-instinct-add-readme-translation
+trigger: "When someone wants to provide or update a Chinese translation for documentation"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Add Readme Translation
+
+## Action
+
+Create or update README.zh-cn.md in the relevant CVE directory; optionally update README.md
+
+## Evidence
+
+- Workflow: add-or-update-readme-translation
+- Files: */*/README.md, */*/README.zh-cn.md
+
+---
+id: vulhub-instinct-improve-manual
+trigger: "When someone wants to clarify, correct, or expand the documentation for an existing environment"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: laozhudetui/vulhub
+---
+
+# Vulhub Instinct Improve Manual
+
+## Action
+
+Edit README.md and/or README.zh-cn.md in the relevant CVE directory; optionally update or add images or scripts
+
+## Evidence
+
+- Workflow: improve-or-update-existing-manual
+- Files: */*/README.md, */*/README.zh-cn.md, */*/*.png
+
